@@ -1,10 +1,10 @@
 'use strict';
 
-// Application Dependencies
+// App Dependencies
 const express = require('express');
 const superagent = require('superagent');
-const cors = require('cors');
-const path = require('path');
+require('dotenv').config();
+//const pg = require('pg');
 
 // Application Setup
 const app = express();
@@ -13,7 +13,6 @@ const PORT = process.env.PORT || 3000;
 // Application Middleware
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
-app.use(cors());
 
 // Set the view engine for server-side templating
 app.set('view engine', 'ejs');
@@ -31,13 +30,20 @@ app.get('*', (request, response) => response.status(404).send('This route does n
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 
 // HELPER FUNCTIONS
-// Only show part of this to get students started
 function Book(info) {
-  const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
-
+  let image = urlCheck(info.imageLinks.thumbnail);
+  this.image_url = image || 'https://i.imgur.com/e1yYXUU.jpg';
   this.title = info.title || 'No title available';
-
+  this.author = info.author || 'No author available';
+  this.description = info.description || 'No description available';
 }
+
+const urlCheck = (data) => { if(data.indexOf('https') === -1){
+  let newData = data.replace('http', 'https');
+  return newData; }else{
+  return data; }
+};
+
 
 // Note that .ejs file extension is not required
 function newSearch(request, response) {
