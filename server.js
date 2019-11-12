@@ -26,24 +26,25 @@ app.post('/searches', createSearch);
 
 // Catch-all
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
-
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 
 // HELPER FUNCTIONS
 function Book(info) {
-  let image = urlCheck(info.imageLinks.thumbnail);
-  this.image_url = image || 'https://i.imgur.com/e1yYXUU.jpg';
-  this.title = info.title || 'No title available';
-  this.author = info.author || 'No author available';
+  //let httpRegex = urlCheck(info.imageLinks.thumbnail);
+
+  this.title = info.title || 'No title available'
+  this.author = info.author? info.authors[0]: 'No author available'
+  this.isbn = info.industryIdentifiers? info.industryIdentifiers[0].identifier: 'No ISBN Number'
+  this.image_url = info.imageLinks? info.imageLinks.smallThumbnail.replace(httpRegex, 'https://'): placeholderImage
   this.description = info.description || 'No description available';
+  this.id = info.industryIdentifiers? info.industryIdentifiers[0].identifier: ''
 }
 
-const urlCheck = (data) => { if(data.indexOf('https') === -1){
-  let newData = data.replace('http', 'https');
-  return newData; }else{
-  return data; }
-};
-
+//const urlCheck = (data) => { if(data.indexOf('https') === -1){
+  //let newData = data.replace('http', 'https');
+  //return newData; }else{
+  //return data; }
+//};
 
 // Note that .ejs file extension is not required
 function newSearch(request, response) {
@@ -64,7 +65,9 @@ function createSearch(request, response) {
   superagent.get(url)
     .then(apiResponse => apiResponse.body.items.map(bookResult => new Book(bookResult.volumeInfo)))
     .then(results => response.render('pages/searches/show', {searchResults: results}));
-  // .then(results => console.log(results));
+    .catch(err => handleError(err, response));
+}
 
-  // how will we handle errors?
+function handleErrors(error, response){
+  response.render('pages/error', {error: error})
 }
