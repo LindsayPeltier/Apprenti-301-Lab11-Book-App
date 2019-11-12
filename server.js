@@ -4,7 +4,6 @@
 const express = require('express');
 const superagent = require('superagent');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const path = require('path');
 
 // Application Setup
@@ -15,11 +14,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
 app.use(cors());
-app.use(bodyParser());
 
 // Set the view engine for server-side templating
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
 
 // API Routes
 // Renders the search form
