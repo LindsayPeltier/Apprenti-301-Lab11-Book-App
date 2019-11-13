@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Show Searches</title>
-</head>
-<body>
-  <h3>Book API Search Results</h3>
-  <ul>
-    <% searchResults.forEach(item => { %>
-      <li><%= item.title %></li>
-    <% }) %>
-  </ul>
-</body>
-</html>
+  <head>
+    <link rel="stylesheet" href="../../public/styles/base.css">
+    <%- include('../layout/head') %>
+  </head>
+  <body>
+      <main>
+        <h4>Search by Title or Author</h4>
+        <form action="/searches" method="post">
+          <input type="text" name="search" placeholder="Enter a title or author" required>
+          <fieldset>
+            <label for="title">
+              <span>Title</span>
+              <input type="radio" name="search" value="title" required>
+            </label>
+          </fieldset>
+          <fieldset>
+            <label for="author">
+              <span>Author</span>
+              <input type="radio" name="search" value="author" required>
+            </label>
+          </fieldset>
+          <button type="submit">Search the Google Books API</button>
+        </form>
+      </main>
+    </body>
+  </html>
+  
