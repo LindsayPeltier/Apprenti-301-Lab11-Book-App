@@ -1,18 +1,19 @@
 # Apprenti-301-Lab11-Book-App
 
-# Project Name
+# Book App
 
-**Author**: Your Name Goes Here
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Author**: Lindsay Peltier
+**Version**: 1.0.0 - November 12, 2019 (Partners with Natalie)
+**Version**: 1.1.0 - November 13, 2019 (Partners with Trevor) 
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code 301 class. (i.e. What's your problem domain?) -->
+Book App is a mobile-first web application that allows you to search through a book database using a variety of parameters, and view 10 books that best match your query. 
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+This application is built using javascript, postSQL, CSS, and EJS
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
@@ -23,7 +24,7 @@
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 -->
 
-Number and name of feature: ________________________________
+Number and name of feature: Lab 11 Feature One
 
 Estimate of time needed to complete: _____
 
@@ -35,7 +36,7 @@ Actual time needed to complete: _____
 
 ***
 
-Number and name of feature: ________________________________
+Number and name of feature: Lab 11 Feature Two
 
 Estimate of time needed to complete: _____
 
@@ -47,7 +48,7 @@ Actual time needed to complete: _____
 
 ***
 
-Number and name of feature: ________________________________
+Number and name of feature: Lab 11 Feature Three
 
 Estimate of time needed to complete: _____
 
@@ -59,7 +60,7 @@ Actual time needed to complete: _____
 
 ***
 
-Number and name of feature: ________________________________
+Number and name of feature: Lab 11 Feature Four
 
 Estimate of time needed to complete: _____
 
@@ -71,7 +72,67 @@ Actual time needed to complete: _____
 
 ***
 
-Number and name of feature: ________________________________
+Number and name of feature: Lab 12 Feature One
+
+Estimate of time needed to complete: _____
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+***
+
+Number and name of feature: Lab 12 Feature Two
+
+Estimate of time needed to complete: _____
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+***
+
+Number and name of feature: Lab 12 Feature Three
+
+Estimate of time needed to complete: _____
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+***
+
+Number and name of feature: Lab 12 Feature Four
+
+Estimate of time needed to complete: _____
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+***
+
+Number and name of feature: Lab 12 Feature Five
+
+Estimate of time needed to complete: _____
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+***
+
+Number and name of feature: Lab 12 Feature Six
 
 Estimate of time needed to complete: _____
 

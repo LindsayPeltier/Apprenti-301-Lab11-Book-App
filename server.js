@@ -30,7 +30,8 @@ app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 
 // HELPER FUNCTIONS
 function Book(info) {
-  //let httpRegex = urlCheck(info.imageLinks.thumbnail);
+  const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpeg'
+  let httpRegex = /^(http:\/\/)/g;
 
   this.title = info.title || 'No title available'
   this.author = info.author? info.authors[0]: 'No author available'
@@ -64,8 +65,8 @@ function createSearch(request, response) {
 
   superagent.get(url)
     .then(apiResponse => apiResponse.body.items.map(bookResult => new Book(bookResult.volumeInfo)))
-    .then(results => response.render('pages/searches/show', {searchResults: results}));
-    .catch(err => handleError(err, response));
+    .then(results => response.render('pages/searches/show', {searchResults: results}))
+    .catch(err => handleErrors(err, response));
 }
 
 function handleErrors(error, response){
