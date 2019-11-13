@@ -57,9 +57,11 @@ function createSearch(request, response) {
 }
 
 function getBooks() {
-  //create a SQL statement to get all books in the the database that was saved previously
-  //render the books on an EJS page
-  //catch any errors
+  let SQL = 'SELECT * from book_app;';
+
+  return client.query(SQL)
+    .then(result => response.render('pages/index', {results: result.rows}))
+    .catch(handleError);
 }
 
 function createBook(){
